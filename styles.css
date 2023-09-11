@@ -1,64 +1,70 @@
-/* Reset some default styles */
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
+* {
+	box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('background-image.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+	font-family: "Open Sans", sans-serif;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	background: hsl(187 40% 98%);
 }
 
-header {
-    text-align: center;
-    padding: 20px;
-}
-
-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-top: 10px;
-    border: 3px solid #fff;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-section {
-    margin-bottom: 20px;
+img {
+	display: block;
+	width: 100%;
 }
 
 h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+	margin: 0;
+	font-size: 1.4rem;
 }
 
-p {
-    font-size: 1.2em;
-    line-height: 1.4;
+@media (min-width: 50em) {
+	h2 {
+		font-size: 1.8rem;
+	}
 }
 
-/* Style the track section differently */
-section:last-child {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
+.cta {
+	--shadowColor: 187 60% 40%;
+	display: flex;
+	flex-wrap: wrap;
+	background: hsl(187 70% 85%);
+	max-width: 50rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 hsl(var(--shadowColor) / 1);
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
 }
 
-/* Add more styles as needed */
+.cta img {
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	flex: 1 1 300px;
+	outline: 0.5rem solid;
+}
+
+.cta__text-column {
+	padding: min(2rem, 5vw) min(2rem, 5vw) min(2.5rem, 5vw);
+	flex: 1 0 50%;
+}
+
+.cta__text-column > * + * {
+	margin: min(1.5rem, 2.5vw) 0 0 0;
+}
+
+.cta a {
+	display: inline-block;
+	color: black;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	background: hsl(187 75% 64%);
+	border-radius: 0.6rem;
+	font-weight: 700;
+	border: 0.35rem solid;
+}

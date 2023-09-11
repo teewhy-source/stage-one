@@ -1,30 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>My Personal Webpage</title>
-</head>
-<body>
-    <header>
-        <h1 data-testid="slackUserName">EDIDI TAIYE</h1>
-        <img src="slack-profile-picture.jpg" alt="Your Slack Username" data-testid="slackDisplayImage">
-    </header>
-    <main>
-        <section>
-            <h2>Current Day of the Week</h2>
-            <p data-testid="currentDayOfTheWeek">Monday</p>
-        </section>
-        <section>
-            <h2>Current Time</h2>
-            <p data-testid="currenttime"></p>
-        </section>
-        <section>
-            <h2>Track</h2>
-            <p>Frontend</p>
-        </section>
-    </main>
-</body>
-<script src="index.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HNG-stage-one-Task</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    
+    <article class="cta">
+      <img
+        src="https://ca.slack-edge.com/T05FFAA91JP-U05RBPR6D4K-dc623f018ad7-512"
+        alt="ExcelTheDev"
+        data-testid="slackDisplayImage"
+      />
+      <div class="cta__text-column">
+        <h2 data-testid="slackUserName">EDIDI TAIYE</h2>
+        <p>This is the first task in the first stage of HNG internship.</p>
+        <p>
+          Today is
+          <time datetime="2023-09-08" id="currentDayOfTheWeek" data-testid="currentDayOfTheWeek">
+            Thursday
+          </time>
+          <p>Current UTC Time in Milliseconds: <span id="current-utc-time" data-testid="currentUTCTime"></span></p>
+        </p>
+        <p>My Track is: <span data-testid="myTrack">Frontend</span></p>
+        <a href="https://github.com/teewhy-source/stage-one" target="_blank"
+         data-testid="githubURL" >Github repo for the source code here</a
+        >
+      </div>
+    </article>
+
+ 
+    
+    <script>
+      // Function to update the UTC time in milliseconds
+      function updateUTCTime() {
+        // Get the current date
+        const currentDate = new Date();
+
+        // Array of weekday names
+        const daysOfWeek = [
+          'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ];
+
+        // Get the current day of the week (0 = Sunday, 1 = Monday, etc.)
+        const currentDayOfWeek = daysOfWeek[currentDate.getUTCDay()];
+
+        // Update the HTML element with the current day of the week
+        const currentDayOfWeekElement = document.getElementById('currentDayOfTheWeek');
+        currentDayOfWeekElement.textContent = currentDayOfWeek;
+
+        // Get the current UTC time in milliseconds
+        const currentUTCTimeMilliseconds = currentDate.getTime();
+
+        // Update the HTML element with the current UTC time in milliseconds
+        const currentUTCTimeElement = document.getElementById('current-utc-time');
+        currentUTCTimeElement.textContent = currentUTCTimeMilliseconds;
+      }
+
+      // Call the updateUTCTime function initially
+      updateUTCTime();
+
+      // Update the UTC time every 1 second (1000 milliseconds)
+      setInterval(updateUTCTime, 1000);
+    </script>
+  </body>
 </html>
